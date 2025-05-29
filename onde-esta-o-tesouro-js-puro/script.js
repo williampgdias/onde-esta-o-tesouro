@@ -10,7 +10,7 @@ let posicaoTesouro = {
     linha: Math.floor(Math.random() * linhas),
     coluna: Math.floor(Math.random() * colunas),
 };
-
+console.log(posicaoTesouro);
 criarTabuleiro();
 
 function handleClickCelula(e) {
