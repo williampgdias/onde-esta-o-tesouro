@@ -30,6 +30,21 @@ for (let linha = 0; linha < linhas; linha++) {
                 }, 1000);
             } else {
                 this.classList.add('celula-errada');
+
+                const distanciaTesouro =
+                    Math.abs(linhaClicada - posicaoTesouro.linha) +
+                    Math.abs(colunaClicada - posicaoTesouro.coluna);
+
+                if (distanciaTesouro >= 6) {
+                    console.log('Vish, tá bem frio!!');
+                } else if (distanciaTesouro >= 4) {
+                    console.log('Você está Morno!');
+                } else if (distanciaTesouro >= 2) {
+                    console.log('Eita, quente, ein!');
+                } else if (distanciaTesouro === 1) {
+                    console.log('Caramba, tá pegando foto!!');
+                }
+                console.log(distanciaTesouro);
             }
         });
     }
