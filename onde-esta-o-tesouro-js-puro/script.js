@@ -1,7 +1,11 @@
 const tabuleiro = document.getElementById('tabuleiro');
+const btnReiniciar = document.getElementById('reiniciar');
+let tentativas = document.querySelector('.tentativas span');
+
 const linhas = 5;
 const colunas = 5;
-const btnReiniciar = document.getElementById('reiniciar');
+let totalTentativas = 5;
+
 let posicaoTesouro = {
     linha: Math.floor(Math.random() * linhas),
     coluna: Math.floor(Math.random() * colunas),
@@ -43,6 +47,26 @@ function handleClickCelula(e) {
             this.textContent = distanciaTesouro;
         }
     }
+
+    totalTentativas--;
+    tentativas.textContent = totalTentativas;
+
+    if (totalTentativas === 0) {
+        const tesouroNaCelula = document.querySelector(
+            `[data-linha="${posicaoTesouro.linha}"][data-coluna="${posicaoTesouro.coluna}"]`
+        );
+
+        tesouroNaCelula.style.backgroundColor = 'gold';
+
+        setTimeout(() => {
+            alert(
+                `Você perdeu! O tesouro estava em: 
+            Linha: ${posicaoTesouro.linha} 
+            Coluna: ${posicaoTesouro.coluna}`
+            );
+            desabilitarCliques();
+        }, 300);
+    }
 }
 
 function desabilitarCliques() {
@@ -56,6 +80,8 @@ function desabilitarCliques() {
 function reiniciarJogo() {
     // Reiniciar o tabuleiro
     tabuleiro.innerHTML = '';
+
+    totalTentativas = 5;
 
     // Reposicionar o tesouro
     posicaoTesouro = {
@@ -79,6 +105,9 @@ function criarTabuleiro() {
             celulaHTML.addEventListener('click', handleClickCelula);
         }
     }
+
+    // Adicionar tentativas dinamicamente
+    tentativas.innerHTML = totalTentativas;
 }
 
 btnReiniciar.addEventListener('click', reiniciarJogo);
