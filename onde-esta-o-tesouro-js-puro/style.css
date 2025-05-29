@@ -36,3 +36,7 @@ h1 {
     align-items: center;
     cursor: pointer;
 }
+
+.tesouro {
+    background-color: red;
+}
