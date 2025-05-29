@@ -29,20 +29,18 @@ for (let linha = 0; linha < linhas; linha++) {
                     alert('Parabéns! Você encontrou o tesouro!');
                 }, 1000);
             } else {
-                this.classList.add('celula-errada');
-
                 const distanciaTesouro =
                     Math.abs(linhaClicada - posicaoTesouro.linha) +
                     Math.abs(colunaClicada - posicaoTesouro.coluna);
 
                 if (distanciaTesouro >= 6) {
-                    console.log('Vish, tá bem frio!!');
+                    this.classList.add('frio');
                 } else if (distanciaTesouro >= 4) {
-                    console.log('Você está Morno!');
+                    this.classList.add('morno');
                 } else if (distanciaTesouro >= 2) {
-                    console.log('Eita, quente, ein!');
+                    this.classList.add('quente');
                 } else if (distanciaTesouro === 1) {
-                    console.log('Caramba, tá pegando foto!!');
+                    this.classList.add('muito-quente');
                 }
                 console.log(distanciaTesouro);
             }
