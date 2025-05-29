@@ -31,12 +31,16 @@ function handleClickCelula(e) {
 
         if (distanciaTesouro >= 6) {
             this.classList.add('frio');
+            this.textContent = distanciaTesouro;
         } else if (distanciaTesouro >= 4) {
             this.classList.add('morno');
+            this.textContent = distanciaTesouro;
         } else if (distanciaTesouro >= 2) {
             this.classList.add('quente');
+            this.textContent = distanciaTesouro;
         } else if (distanciaTesouro === 1) {
             this.classList.add('muito-quente');
+            this.textContent = distanciaTesouro;
         }
     }
 }
