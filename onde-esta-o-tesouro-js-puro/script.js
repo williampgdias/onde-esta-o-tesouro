@@ -1,10 +1,13 @@
 const tabuleiro = document.getElementById('tabuleiro');
 const linhas = 5;
 const colunas = 5;
-const posicaoTesouro = {
+const btnReiniciar = document.getElementById('reiniciar');
+let posicaoTesouro = {
     linha: Math.floor(Math.random() * linhas),
     coluna: Math.floor(Math.random() * colunas),
 };
+
+criarTabuleiro();
 
 function handleClickCelula(e) {
     const celulaClicadaElement = e.currentTarget;
@@ -35,7 +38,6 @@ function handleClickCelula(e) {
         } else if (distanciaTesouro === 1) {
             this.classList.add('muito-quente');
         }
-        console.log(distanciaTesouro);
     }
 }
 
@@ -47,14 +49,32 @@ function desabilitarCliques() {
     });
 }
 
-for (let linha = 0; linha < linhas; linha++) {
-    for (let coluna = 0; coluna < colunas; coluna++) {
-        const celulaHTML = document.createElement('div');
-        celulaHTML.classList.add('celula');
-        celulaHTML.dataset.linha = linha;
-        celulaHTML.dataset.coluna = coluna;
-        tabuleiro.appendChild(celulaHTML);
+function reiniciarJogo() {
+    // Reiniciar o tabuleiro
+    tabuleiro.innerHTML = '';
 
-        celulaHTML.addEventListener('click', handleClickCelula);
+    // Reposicionar o tesouro
+    posicaoTesouro = {
+        linha: Math.floor(Math.random() * linhas),
+        coluna: Math.floor(Math.random() * colunas),
+    };
+
+    // Iniciar o tabuleiro novamente
+    criarTabuleiro();
+}
+
+function criarTabuleiro() {
+    for (let linha = 0; linha < linhas; linha++) {
+        for (let coluna = 0; coluna < colunas; coluna++) {
+            const celulaHTML = document.createElement('div');
+            celulaHTML.classList.add('celula');
+            celulaHTML.dataset.linha = linha;
+            celulaHTML.dataset.coluna = coluna;
+            tabuleiro.appendChild(celulaHTML);
+
+            celulaHTML.addEventListener('click', handleClickCelula);
+        }
     }
 }
+
+btnReiniciar.addEventListener('click', reiniciarJogo);
