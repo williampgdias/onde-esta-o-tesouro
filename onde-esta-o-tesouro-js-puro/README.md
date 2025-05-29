@@ -8,7 +8,7 @@ Neste jogo, você precisa encontrar um tesouro escondido em um tabuleiro. A cada
 
 ## 🎮 Como Jogar:
 
-1.  **Abra o link:**
+1.  **Abra o link:** [Veja o projeto](https://williampgdias.github.io/onde-esta-o-tesouro/)
 2.  **Clique nas Células:** O tabuleiro aparecerá na tela. Clique em qualquer célula para fazer sua primeira tentativa.
 
     ![Imagem do primeiro contato com o jogo](./screenshots/01.png)
