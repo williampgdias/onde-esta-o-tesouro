@@ -38,5 +38,9 @@ h1 {
 }
 
 .tesouro {
+    background-color: green;
+}
+
+.celula-errada {
     background-color: red;
 }

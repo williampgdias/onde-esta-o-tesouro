@@ -28,6 +28,8 @@ for (let linha = 0; linha < linhas; linha++) {
                 setTimeout(() => {
                     alert('Parabéns! Você encontrou o tesouro!');
                 }, 1000);
+            } else {
+                this.classList.add('celula-errada');
             }
         });
     }
